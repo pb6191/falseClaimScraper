@@ -22,7 +22,10 @@ def write_csv(header, data, path, mode):
             writer.writerow(header)
         writer.writerows(data)
 
-url = "https://content-factchecktools.googleapis.com/v1alpha1/claims:search?query=REPLACE&pageSize=999999&maxAgeDays=120&key=AIzaSyBH25tWSyEToPIcSd_DVhnKzj-cQ7ayRf0"
+with open('key.txt', 'r') as file:
+    key_data = file.read().replace('\n', '')
+
+url = "https://content-factchecktools.googleapis.com/v1alpha1/claims:search?query=REPLACE&pageSize=999999&maxAgeDays=120&key="+key_data
 searchStrs = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "1", "2", "3", "4", "5", "6", "7", "8", "9", "0"]
 for searchStr in searchStrs:
     print(searchStr)
